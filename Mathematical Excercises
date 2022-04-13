@@ -1,1 +1,12 @@
+#Generates 100 objects of the Point class by using random library
+import random
 
+list=[]
+for i in range(100):
+    class point:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+    point.x = random.randint(-100,100)
+    point.y = random.randint(-100,100)
+    list.append(point)
