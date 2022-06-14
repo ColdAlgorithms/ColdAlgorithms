@@ -1,5 +1,3 @@
-- 👋 Hi, I’m @ColdAlgorithms
-- 👀 I’m interested in Python & Data Analysis
-- 🌱 I’m currently working as a software application specialist for a tech company based in Istanbul
+- Hi, I'm a multidirectional and ambitious fresh industrial engineer. I desire to work in a dynamic company in the rising technology industry where I can reveal my potential and gain experience for a continuous improvement. I’m currently working as a software application specialist for a tech company based in Istanbul. However, I'm seeking more specialization in Python language & Data Analysis methods. 
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
