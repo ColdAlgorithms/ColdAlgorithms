@@ -223,9 +223,17 @@ class __Student:
 
 # This class represents a course that a group of students is enrolled in. They will be assigned assignments when enrolled in this course. This object will be used to calculate aggregate student statistics.
 class __Course:
+    """
+    Constructs a course with the specified list of students
+    :param students: A list containing one or more students
+    """
     def __init__(self, students: list):
         self.students = students
 
+    """
+    Returns the numerical value of the class mean (average) grade.
+    :return: The average student grade
+    """        
     def get_mean_grade(self):
             sum = 0
             for student in self.students:
@@ -233,6 +241,12 @@ class __Course:
             mean_grade = float(sum/len(self.students))
             return mean_grade
 
+    """
+   Returns the highest grade in the class.
+   The grades used in the calculation come from the student.get_grade(), it does not care if a grade was earned
+    when the student was in another class.
+   :return: The highest grade in the class
+   """        
     def get_max_grade(self):
         students_grades = []
         for student in self.students:
@@ -240,6 +254,12 @@ class __Course:
         max_grade = float(max(students_grades))
         return max_grade
 
+    """
+   Returns the lowest grade in the class.
+   The grades used in the calculation come from the student.get_grade(), it does not care if a grade was earned
+    when the student was in another class.
+   :return: The lowest grade in the class
+   """    
     def get_min_grade(self):
         students_grades = []
         for student in self.students:
@@ -247,6 +267,13 @@ class __Course:
         min_grade = float(min(students_grades))
         return min_grade
 
+    """
+    Calculates and returns the median (middle value) of all the student's grades in this course
+
+    The grades used in the calculation come from the student.get_grade(), it does not care if a grade was earned
+    when the student was in another class.
+    :return: The median grade
+    """
     def get_median_grade(self):
         students_grades = []
         for student in self.students:
@@ -254,13 +281,27 @@ class __Course:
         median_grade = float(statistics.median(students_grades))
         return median_grade
 
+    """
+    Calculates and returns the sample variance of all the student's grades in this course
+
+    The grades used in the calculation come from the student.get_grade(), it does not care if a grade was earned
+    when the student was in another class.
+    :return: The sample variance of the grades
+    """
     def get_grade_variance(self):
         students_grades = []
         for student in self.students:
             students_grades.append(student.get_grade())
         grade_variance = float(statistics.variance(students_grades))
         return grade_variance
-        
+
+    """
+    Calculates and returns the sample standard deviation of all the student's grades in this course.
+
+    The grades used in the calculation come from the student.get_grade(), it does not care if a grade was earned
+    when the student was in another class.
+    :return: The sample standard deviation of the grades
+    """
     def get_grade_std_dev(self):
         students_grades = []
         for student in self.students:
@@ -268,6 +309,15 @@ class __Course:
         std_dev = float(statistics.stdev(students_grades))
         return std_dev
 
+    """
+    This creates an assignment using the parameters specified, then assigns it to all of the students in this
+    course, by calling the assign method on each student. Subsequent invocations to the statistics methods above
+    should reflect the changes made by this method after it is called. In other words if a very difficult
+    assignment is assigned the course mean should be less after.
+    :param name: The name of the assignment
+    :param difficulty: The level of difficulty of the assignment
+    :return: None
+    """
     def assign(self, name: str, difficulty: float):
         assignment = __Assignment(name, difficulty)
         for student in self.students:
